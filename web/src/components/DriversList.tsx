@@ -20,7 +20,7 @@ export function DriverList({ trip, onPackageSelect, onCancel }: DriverListProps)
         <p className="text-sm text-gray-500 mb-6">Routing for {convertMetersToKilometers(trip?.distance ?? 0)}</p>
         <div className="flex items-center gap-1 text-sm text-gray-500 mb-2">
           <Clock className="w-4 h-4" />
-          <span>You&apos;ll arrive in: {convertSecondsToMinutes(trip?.duration ?? 0)} minutes</span>
+          <span>You&apos;ll arrive in: {convertSecondsToMinutes(trip?.duration ?? 0)}</span>
         </div>
         <div className="space-y-4">
           {trip?.rideFares.map((fare) => {
