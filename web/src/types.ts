@@ -1,66 +1,34 @@
-export interface Trip {
-    id: string;
-    userID: string;
-    status: string;
-    selectedFare: RouteFare;
-    route: Route;
-    driver?: Driver;
-    trip: Trip;
+export type ItemCategory =
+  | "electronics"
+  | "wallet"
+  | "bag"
+  | "documents"
+  | "clothing"
+  | "other";
+
+export interface LostItemReport {
+  id: string;
+  passengerId: string;
+  category: ItemCategory;
+  description: string;
+  lastSeenRoute?: string;
+  lastSeenStation?: string;
+  lostAt?: string;
+  status: "submitted" | "matching" | "matched" | "closed";
 }
 
-export interface RequestRideProps {
-    pickup: [number, number],
-    destination: [number, number],
+export interface FoundItem {
+  id: string;
+  source: "station_desk" | "vehicle_operator" | "depot";
+  description: string;
+  foundAt: string;
+  route?: string;
+  station?: string;
 }
 
-export interface Coordinate {
-    latitude: number,
-    longitude: number,
-}
-
-export interface Route {
-    geometry: {
-        coordinates: Coordinate[]
-    }[],
-    duration: number,
-    distance: number,
-}
-
-export enum CarPackageSlug {
-    SEDAN = "sedan",
-    SUV = "suv",
-    VAN = "van",
-    LUXURY = "luxury",
-}
-
-export interface RouteFare {
-    id: string,
-    packageSlug: CarPackageSlug,
-    basePrice: number,
-    totalPriceInCents?: number,
-    expiresAt: Date,
-    route: Route,
-}
-
-
-export interface HTTPTripStartResponse {
-    tripID: string;
-}
-
-export interface TripPreview {
-    tripID: string,
-    route: [number, number][],
-    rideFares: RouteFare[],
-    duration: number,
-    distance: number,
-}
-
-
-export interface Driver {
-    id: string;
-    location: Coordinate;
-    geohash: string;
-    name: string;
-    profilePicture: string;
-    carPlate: string;
+export interface MatchResult {
+  reportId: string;
+  foundItemId: string;
+  confidence: number;
+  rationale: string;
 }

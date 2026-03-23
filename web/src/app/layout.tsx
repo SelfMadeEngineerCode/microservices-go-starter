@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RideShare",
-  description: "RideShare",
+  title: "SmartFind",
+  description: "AI-powered lost and found management for public transit",
 };
 
 export default function RootLayout({

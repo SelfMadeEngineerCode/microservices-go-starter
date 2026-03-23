@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: ride-sharing/web
+        image: smartfind/web
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
@@ -31,10 +31,10 @@ spec:
         env:
         - name: NODE_ENV
           value: "development"
-        - name: NEXT_PUBLIC_API_URL
-          value: "http://api-gateway:8081"
-        - name: NEXT_PUBLIC_WEBSOCKET_URL
-          value: "ws://api-gateway:8081/ws"
+        - name: NEXT_PUBLIC_API_BASE_URL
+          value: "http://smartfind-api:8081"
+        - name: NEXT_PUBLIC_AGENTS_BASE_URL
+          value: "http://smartfind-agents:8090"
         readinessProbe:
           httpGet:
             path: /
