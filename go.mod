@@ -48,4 +48,6 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250115164207-1a7da9e5054f // indirect
 )
 
-require go.mongodb.org/mongo-driver v1.13.1
+require (
+	go.mongodb.org/mongo-driver v1.13.1
+)

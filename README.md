@@ -239,3 +239,17 @@ https://<IP_ADDRESS>
 Note: Since this is using a self-signed certificate, browsers will show a security warning. This is normal and expected. You can:
 Accept the warning in your browser (not recommended for production)
 Use a proper domain name (recommended for production)
+
+
+# Create your own service, i.e.
+
+```
+go run tools/create_service.go -name example
+```
+
+
+# Don't forget to wake minikube before any sessions, or tilt will fail 
+
+```
+minikube start
+```
